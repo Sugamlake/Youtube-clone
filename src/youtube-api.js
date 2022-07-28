@@ -16,15 +16,17 @@ const options = {
 };
 
 const getVideos = async () => {
-  let videos = axios.request(options).then(function (response) {
+  return new Promise((resolve, reject) => {
+  axios.request(options).then(function (response) {
     // console.log(response.data);
-      return response.data;
-      console.log("title: " + response.data.items[0].snippet.title);
-      console.log("thumbnail: " + response.data.items[0].snippet.thumbnails.default.url);
-      console.log("description: " + response.data.items[0].snippet.description);
+      resolve(response.data.items);
+      // console.log("title: " + response.data.items[0].snippet.title);
+      // console.log("thumbnail: " + response.data.items[0].snippet.thumbnails.default.url);
+      // console.log("description: " + response.data.items[0].snippet.description);
   }).catch(function (error) {
+     reject(error);
      console.error(error);
   });
-  return videos;
+  });
 }
 export default getVideos;

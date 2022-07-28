@@ -15,7 +15,7 @@ export const SearchPage = () => {
 
       <ChannelRow
         image="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-        channel="ANaranjoDev"
+        channel="SugamDev"
         verified
         subs="660K"
         noOfVideos={382}
@@ -26,7 +26,7 @@ export const SearchPage = () => {
         title="How to create a Youtube Clone | 2020"
         views="2.3M"
         timestamp="3 days ago"
-        channel="ANaranjoDev"
+        channel="SugamDev"
         subs="660K"
         image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
         description="Nice description for video"
@@ -35,7 +35,7 @@ export const SearchPage = () => {
         title="How to create a Youtube Clone | 2020"
         views="2.3M"
         timestamp="3 days ago"
-        channel="ANaranjoDev"
+        channel="SugamDev"
         subs="660K"
         image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
         description="Nice description for video"
@@ -44,7 +44,7 @@ export const SearchPage = () => {
         title="How to create a Youtube Clone | 2020"
         views="2.3M"
         timestamp="3 days ago"
-        channel="ANaranjoDev"
+        channel="SugamDev"
         subs="660K"
         image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
         description="Nice description for video"
@@ -53,7 +53,7 @@ export const SearchPage = () => {
         title="How to create a Youtube Clone | 2020"
         views="2.3M"
         timestamp="3 days ago"
-        channel="ANaranjoDev"
+        channel="SugamDev"
         subs="660K"
         image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
         description="Nice description for video"
@@ -62,7 +62,7 @@ export const SearchPage = () => {
         title="How to create a Youtube Clone | 2020"
         views="2.3M"
         timestamp="3 days ago"
-        channel="ANaranjoDev"
+        channel="SugamDev"
         subs="660K"
         image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
         description="Nice description for video"
@@ -71,7 +71,43 @@ export const SearchPage = () => {
         title="How to create a Youtube Clone | 2020"
         views="2.3M"
         timestamp="3 days ago"
-        channel="ANaranjoDev"
+        channel="SugamDev"
+        subs="660K"
+        image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        description="Nice description for video"
+      />
+      <VideoRow
+        title="How to create a Youtube Clone | 2020"
+        views="2.3M"
+        timestamp="3 days ago"
+        channel="SugamDev"
+        subs="660K"
+        image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        description="Nice description for video"
+      />
+      <VideoRow
+        title="How to create a Youtube Clone | 2020"
+        views="2.3M"
+        timestamp="3 days ago"
+        channel="SugamDev"
+        subs="660K"
+        image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        description="Nice description for video"
+      />
+      <VideoRow
+        title="How to create a Youtube Clone | 2020"
+        views="2.3M"
+        timestamp="3 days ago"
+        channel="SugamDev"
+        subs="660K"
+        image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        description="Nice description for video"
+      />
+      <VideoRow
+        title="How to create a Youtube Clone | 2020"
+        views="2.3M"
+        timestamp="3 days ago"
+        channel="SugamDev"
         subs="660K"
         image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
         description="Nice description for video"
