@@ -1,86 +1,58 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import "./RecommendedVideos.css";
 import { VideoCard } from "./VideoCard";
-import getVideos from "./youtube-api";
+import axios from "axios";
 
 
-export const RecommendedVideos = async () => {
+export const RecommendedVideos = () => {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
-  let videos = await getVideos();
-  console.log(videos);  
-  setTitle(videos[0].snippet.title);
-  setUrl(videos[0].snippet.thumbnails.default.url);
-  console.log(title);
-  console.log(url);
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://youtube-v31.p.rapidapi.com/search',
+      params: {
+        q: 'music',
+        part: 'snippet,id',
+        regionCode: 'US',
+        maxResults: '12',
+        order: 'date'
+      },
+      headers: {
+        'X-RapidAPI-Key': 'd9ded79661msh6c5d631ba510aeep18a8cbjsn1e92a6f80de6',
+        'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
+      }
+    };
+    
+      axios.request(options).then(function (response) {
+        let arr = [];
+        response.data.items.map(item => {
+          if("snippet" in item){
+            arr.push(item);
+          }
+        })
+          setVideos(arr.slice(0,12));
+      }).catch(function (error) {
+         console.error(error);});
+  }, []);
   return (
     <div className="recommendedVideos">
       <h2>Recommended</h2>
       <div className="recommendedVideos__videos">
-        {/* <VideoCard
-          title={title}
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="sugam"
-          image={url}
-        /> */}
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="SugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="SugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="SugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="SugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="SugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="SugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
-        <VideoCard
-          title="Youtube Clone | 2022 by Sugam"
-          views="2M views"
-          timestamp="3 days ago"
-          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
-          channel="sSugamDev"
-          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
-        />
+        {videos.map((video, index) => {
+          return (
+            <VideoCard
+            key={index}
+            title={video?.snippet.title}
+            views="2M views"
+            timestamp="3 days ago"
+            channelImage="https://avatars.githubusercontent.com/u/93014692?v=4"
+            channel="sugam"
+            image={video?.snippet.thumbnails.medium.url}
+          />
+          )
+        })}
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export const SearchPage = () => {
       <hr />
 
       <ChannelRow
-        image="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+        image="https://avatars.githubusercontent.com/u/93014692?v=4"
         channel="SugamDev"
         verified
         subs="660K"

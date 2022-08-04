@@ -21,8 +21,7 @@ export const Header = () => {
           }}
         >
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/YouTube_icon.png/800px-YouTube_icon.png"
-            alt="logo youtube"
+            src="https://i.postimg.cc/gJsPxmDP/Captura-de-Pantalla-2022-08-03-a-la-s-18-06-33.png"
             className="header__logo"
           />
         </Link>
@@ -43,8 +42,8 @@ export const Header = () => {
         <AppsIcon className="header__icon" />
         <NotificationsIcon className="header__icon" />
         <Avatar
-          alt="Restaurant"
-          src="../assets/la_marca.jpeg"
+          alt="SugamDev"
+          src="https://avatars.githubusercontent.com/u/93014692?v=4"
         />
       </div>
       {/* <div className="navbar__center__container">
