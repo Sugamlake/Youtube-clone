@@ -32,6 +32,11 @@ export const Header = () => {
           placeholder="Search"
           value={inputSearch}
           onChange={(e) => setInputSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              window.location.href = `/search/${inputSearch}`;
+            }
+          }}
         />
         <Link to={`/search/${inputSearch}`} className="header__linkButton">
           <SearchIcon className="header__inputButton" />

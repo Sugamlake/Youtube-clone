@@ -13,7 +13,9 @@ function App() {
       <div className="app_page">
         <Sidebar />
         <Switch>
-          <Route path="/search/:searchTerm" component={SearchPage} />
+          <Route path="/search/:searchTerm" render={({match})=>{
+            return <SearchPage searchTerm={match.params.searchTerm}/>
+          }} />
           <Route path="/" exact component={RecommendedVideos} />
         </Switch>
       </div>
