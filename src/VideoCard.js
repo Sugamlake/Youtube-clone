@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 import "./VideoCard.css";
 
 export const VideoCard = ({
@@ -10,9 +10,11 @@ export const VideoCard = ({
   views,
   timestamp,
   channelImage,
+  link,
 }) => {
   return (
     <div className="videoCard">
+      <Link to={`/video/${link}`} style = {{textDecoration:"none", color:"black"}}>
       <img src={image} alt="" className="videoCard__thumbnail" />
       <div className="videoCard__info">
         <Avatar
@@ -29,6 +31,7 @@ export const VideoCard = ({
           </p>
         </div>
       </div>
+      </Link>
     </div>
   );
 };

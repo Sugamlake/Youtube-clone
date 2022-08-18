@@ -1,5 +1,6 @@
 import React from "react";
 import "./VideoRow.css";
+import {Link} from "react-router-dom";
 
 export const VideoRow = ({
   views,
@@ -9,9 +10,11 @@ export const VideoRow = ({
   channel,
   title,
   image,
+  link,
 }) => {
   return (
     <div className="videoRow">
+      <Link to={`/video/${link}`} style = {{textDecoration:"none", color:"black"}}>
       <img alt={channel} src={image} />
       <div className="videoRow__text">
         <h3>{title}</h3>
@@ -24,6 +27,7 @@ export const VideoRow = ({
         </p>
         <p className="videoRow__description">{description}</p>
       </div>
+      </Link>
     </div>
   );
 };

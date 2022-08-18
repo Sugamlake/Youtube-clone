@@ -4,12 +4,12 @@ import { VideoCard } from "./VideoCard";
 import axios from "axios";
 
 
-export const RecommendedVideos = () => {
+export const TrendingPage = () => {
   const [videos, setVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
   useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=music&order=relevance').then(function (response) {
+      axios.get('http://localhost:5000/api/search?search_query=news&order=rating').then(function (response) {
           setVideosUrl(response.data.videos);
           setChannelsUrl(response.data.channels);
       }).catch(function (error) {
@@ -33,7 +33,7 @@ export const RecommendedVideos = () => {
   } , [videosUrl]);
   return (
     <div className="recommendedVideos">
-      <h2>Recommended</h2>
+      <h2>Trending</h2>
       <div className="recommendedVideos__videos">
         {videos.map((video, index) => {
           return (
