@@ -1,0 +1,66 @@
+.videoPlayer { /* Para colocar el tamaño de la sección del video y los comentarios*/
+    width: 700px; /* Ancho del video */
+    margin-bottom: 40px; /* para dar un margen inferior para la sección del video y comentarios*/
+}
+
+.videoPlayer__video { /* Dimensiona el reproductor del video */
+    display: inline-block; /*  Para mover mas fácilmente los elementos de un bloque de videos*/
+}
+
+.videoPlayer__video:hover { /* Al estar sobre el reproductor del video el cursor se vuelve una manito*/
+    cursor: pointer; /* el cursos se vuelve un pointer: manito*/
+}
+
+.videoPlayer__info { /* Controla el tamaño total sobre la sección de información del video*/
+    width: 500px;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+
+.videoPlayer__info > h4 { /* Controla el tamaño del título del video*/
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+.videoPlayer__info > p { /* Controla el tamaño de la información del video*/
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: gray;
+    display: inline-block;
+}
+
+.videoPlayer__info__user { /* Controla el tamaño de la sección sobre el usuario que subió el video*/
+    width: 500px;
+    margin-top: 10px;
+}
+
+.videoPlayer__info__user > p { /* Controla el tamaño del texto de los datos del usuario*/
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: black;
+    display: inline-block;
+}
+
+.videoPlayer__info__user > Button {
+    font-size: 12px;
+    color: gray;
+}
+
+.videoPlayer__comment { /* Controla el tamaño de la sección sobre el usuario que subió el video*/
+    width: 500px;
+    margin-top: 10px;
+}
+
+.videoPlayer__comment > p { /* Controla el tamaño del texto de los datos del usuario*/
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight:500;
+    color: black;
+    display: inline-block;
+}
+
+.videoPlayer__avatar { /* Controla el tamaño del avatar del usuario*/
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+}

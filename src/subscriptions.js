@@ -9,7 +9,7 @@ export const Subscriptions = () => { //Acá se le cambia el nombre con el mismo 
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
   useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=followers&order=rating').then(function (response) {
+      axios.get('http://localhost:5000/api/search?search_query=followers&order=relevance&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
           setVideosUrl(response.data.videos);
           setChannelsUrl(response.data.channels);
       }).catch(function (error) {
@@ -33,7 +33,7 @@ export const Subscriptions = () => { //Acá se le cambia el nombre con el mismo 
   } , [videosUrl]);
   return (
     <div className="recommendedVideos">
-      <h2>Suscriptions</h2>
+      <h2>Subscriptions</h2>
       <div className="recommendedVideos__videos">
         {videos.map((video, index) => {
           return (

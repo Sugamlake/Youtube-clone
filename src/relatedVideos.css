@@ -1,0 +1,22 @@
+.relatedVideos {
+    display: flex;
+    margin-bottom: 10px;
+    max-width: 300px;
+    flex-flow: row wrap;
+  }
+  .relatedVideos > img {
+    object-fit: contain;
+    display: inline-flex;
+  }
+  
+  .relatedVideos__text {
+    margin-left: 5px;
+    display: inline-flex;
+    font-size: 15px;
+  }
+  
+  .relatedVideos__headline {
+    font-size: 12px;
+    color: #606060;
+  }
+  
