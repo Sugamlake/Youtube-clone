@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Header.css";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,13 +7,15 @@ import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { VideosContext } from "./VideosContext";
 
 export const Header = () => {
   const [inputSearch, setInputSearch] = useState("");
+  const { menu, setMenu } = useContext(VideosContext);
   return (
     <div className="header">
       <div className="header__left">
-        <MenuIcon />
+        <MenuIcon onClick={()=>{setMenu(!menu)}}/>
         <Link
           to="/"
           onClick={() => {

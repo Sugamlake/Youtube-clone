@@ -1,24 +1,17 @@
 import React,{useState, useEffect} from "react";
-import "./Library.css";
+import "./RecommendedVideos.css";
 import { VideoCard } from "./VideoCard";
 import axios from "axios";
 
 
-export const Library = () => { //Acá se le cambia el nombre con el mismo del import de app.js
+export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del import de app.js
   const [videos, setVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
-  const [playlists, setPlaylists] = useState([]);
-
-
   useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=starcraft%20remasterizado&order=relevance').then(function (response) {
+      axios.get('http://localhost:5000/api/search?search_query=followers&order=relevance&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
           setVideosUrl(response.data.videos);
           setChannelsUrl(response.data.channels);
-      }).catch(function (error) {
-         console.error(error);});
-      axios.get('http://localhost:5000/api/playlists?channel_id=UCBi2mrWuNuyYy4gbM6fU18Q').then(function (response) {
-          setPlaylists(response.data);
       }).catch(function (error) {
          console.error(error);});
   }, []);
@@ -39,9 +32,9 @@ export const Library = () => { //Acá se le cambia el nombre con el mismo del im
     })
   } , [videosUrl]);
   return (
-    <div className="library">
-      <h2>Library</h2>
-      <div className="library__videos">
+    <div className="recommendedVideos">
+      <h2>Show More</h2>
+      <div className="recommendedVideos__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard
@@ -56,8 +49,6 @@ export const Library = () => { //Acá se le cambia el nombre con el mismo del im
           />
           )
         })}
-        <hr />
-
       </div>
     </div>
   );

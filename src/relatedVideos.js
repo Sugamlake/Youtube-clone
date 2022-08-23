@@ -1,5 +1,5 @@
 import React from "react";
-import "./VideoRow.css";
+import "./relatedVideos.css";
 import {Link} from "react-router-dom";
 
 export const RelatedVideos = ({

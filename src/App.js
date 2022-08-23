@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./App.css";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
@@ -9,14 +9,17 @@ import { VideoPage } from "./videoPage";
 import { TrendingPage } from "./trendingPage";
 import { Subscriptions } from "./subscriptions";
 import { Library } from "./Library";
-// import { History} from "./History";
-// import {YourVideos} from "./YourVideos";
-// import {WatchLater} from "./WatchLater";
-// import {LikedVideos} from "./LikedVideos";
-// import {ShowMore} from "./ShowMore";
+import { History} from "./History";
+import {YourVideos} from "./YourVideos";
+import {WatchLater} from "./WatchLater";
+import {LikedVideos} from "./LikedVideos";
+import {ShowMore} from "./ShowMore";
+import {VideosContext} from "./VideosContext";
+
 
 
 function App() {
+  const { menu, isOnVideoPage } = useContext(VideosContext);
   return (
     <div className="app">
       <Header />
@@ -32,12 +35,12 @@ function App() {
           <Route path="/trending" exact component={TrendingPage} />
           <Route path="/" exact component={RecommendedVideos} />
           <Route path="/Subscriptions" exact component={Subscriptions} />
-          {<Route path="/Library" exact component={Library} />
-          /*<Route path="/History" exact component={History} />
+          <Route path="/Library" exact component={Library} />
+          <Route path="/History" exact component={History} />
           <Route path="/Your Videos" exact component={YourVideos} />
           <Route path="/Watch Later" exact component={WatchLater} />
           <Route path="/Liked Videos" exact component={LikedVideos} />
-          <Route path="/Show More" exact component={ShowMore} /> */}
+          <Route path="/Show More" exact component={ShowMore} />  
         </Switch>
       </div>
     </div>

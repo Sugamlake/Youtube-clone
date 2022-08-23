@@ -1,5 +1,5 @@
 .videoPlayer { /* Para colocar el tamaño de la sección del video y los comentarios*/
-    width: 700px; /* Ancho del video */
+    width: 731px; /* Ancho del video */
     margin-bottom: 40px; /* para dar un margen inferior para la sección del video y comentarios*/
 }
 
@@ -12,7 +12,7 @@
 }
 
 .videoPlayer__info { /* Controla el tamaño total sobre la sección de información del video*/
-    width: 500px;
+    width: 731px;
     margin-top: 10px;
     padding-right: 30px;
 }
@@ -30,7 +30,7 @@
 }
 
 .videoPlayer__info__user { /* Controla el tamaño de la sección sobre el usuario que subió el video*/
-    width: 500px;
+    width: 731px;
     margin-top: 10px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .videoPlayer__comment { /* Controla el tamaño de la sección sobre el usuario que subió el video*/
-    width: 500px;
+    width: 731px;
     margin-top: 10px;
 }
 

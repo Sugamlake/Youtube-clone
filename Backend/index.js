@@ -178,4 +178,20 @@ app.get('/api/comments', async (req, res) => {
     }
 })
 
+app.get('/api/playlists', async (req, res) => {
+    try {
+        const channelId = req.query.channel_id;
+        const response = await youtube.playlists.list({
+            part: 'snippet',
+            channelId: channelId,
+            maxResults: '2'
+        });
+        const playlists = response.data.items;
+        res.json(playlists);
+    }
+    catch (error) {
+        console.log(error);
+    }
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

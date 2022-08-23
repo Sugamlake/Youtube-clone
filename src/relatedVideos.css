@@ -2,17 +2,16 @@
     display: flex;
     margin-bottom: 10px;
     max-width: 300px;
-    flex-flow: row wrap;
+    margin-left: auto;
   }
   .relatedVideos > img {
     object-fit: contain;
-    display: inline-flex;
   }
   
   .relatedVideos__text {
     margin-left: 5px;
     display: inline-flex;
-    font-size: 15px;
+    font-size: 10px;
   }
   
   .relatedVideos__headline {

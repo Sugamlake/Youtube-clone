@@ -1,5 +1,6 @@
 .videoPage {
     width: 80%;
+    column-count: 2;
     background-color: #f9f9f9;
     padding: 40px 20px 0 20px;
     min-height: 100%;
