@@ -8,7 +8,7 @@ import { SearchPage } from "./SearchPage";
 import { VideoPage } from "./videoPage";
 import { TrendingPage } from "./trendingPage";
 import { Subscriptions } from "./subscriptions";
-// import { Library } from "./Library";
+import { Library } from "./Library";
 // import { History} from "./History";
 // import {YourVideos} from "./YourVideos";
 // import {WatchLater} from "./WatchLater";
@@ -32,8 +32,8 @@ function App() {
           <Route path="/trending" exact component={TrendingPage} />
           <Route path="/" exact component={RecommendedVideos} />
           <Route path="/Subscriptions" exact component={Subscriptions} />
-          {/* <Route path="/Library" exact component={Library} />
-          <Route path="/History" exact component={History} />
+          {<Route path="/Library" exact component={Library} />
+          /*<Route path="/History" exact component={History} />
           <Route path="/Your Videos" exact component={YourVideos} />
           <Route path="/Watch Later" exact component={WatchLater} />
           <Route path="/Liked Videos" exact component={LikedVideos} />
