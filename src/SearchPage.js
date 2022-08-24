@@ -48,8 +48,8 @@ useEffect(() => {
         image="https://avatars.githubusercontent.com/u/93014692?v=4"
         channel="SugamDev"
         verified
-        subs="660K"
-        noOfVideos={382}
+        subs="5.2M"
+        noOfVideos={654}
         description="Nice description"
       />
       <hr />

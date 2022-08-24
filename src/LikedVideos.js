@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import "./RecommendedVideos.css";
+import "./likedVideos.css";
 import { VideoCard } from "./VideoCard";
 import axios from "axios";
 
@@ -32,9 +32,9 @@ export const LikedVideos = () => { //Acá se le cambia el nombre con el mismo de
     })
   } , [videosUrl]);
   return (
-    <div className="recommendedVideos">
+    <div className="likedVideos">
       <h2>Liked Videos</h2>
-      <div className="recommendedVideos__videos">
+      <div className="likedVideos__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard

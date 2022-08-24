@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import "./RecommendedVideos.css";
+import "./trendingPage.css";
 import { VideoCard } from "./VideoCard";
 import axios from "axios";
 
@@ -32,9 +32,9 @@ export const TrendingPage = () => {
     })
   } , [videosUrl]);
   return (
-    <div className="recommendedVideos">
+    <div className="trendingPage">
       <h2>Trending</h2>
-      <div className="recommendedVideos__videos">
+      <div className="trendingPage__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard

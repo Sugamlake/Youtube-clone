@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import "./RecommendedVideos.css";
+import "./showMore.css";
 import { VideoCard } from "./VideoCard";
 import axios from "axios";
 
@@ -32,9 +32,9 @@ export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del i
     })
   } , [videosUrl]);
   return (
-    <div className="recommendedVideos">
+    <div className="showMore">
       <h2>Show More</h2>
-      <div className="recommendedVideos__videos">
+      <div className="showMore__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard

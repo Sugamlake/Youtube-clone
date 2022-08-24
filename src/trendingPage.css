@@ -1,0 +1,36 @@
+.trendingPage {
+    width: 270px;
+    margin-bottom: 40px;
+  }
+  
+  .trendingPage__thumbnail {
+    width: 250px;
+    height: 140px;
+    object-fit: cover;
+  }
+  
+  .trendingPage__info {
+    display: flex;
+    margin-top: 10px;
+    padding-right: 30px;
+  }
+  
+  .trendingPage__text {
+    margin-left: 15px;
+  }
+  
+  .trendingPage__text > h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .trendingPage__text > p {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .trendingPage__avatar {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  
