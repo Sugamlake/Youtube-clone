@@ -6,10 +6,11 @@
 }
 
 .subscriptions > h2 {
-  margin: 0 0 20px 5px;
+  margin: 20px 0 20px 5px;
 }
 
 .subscriptions__videos {
   display: flex;
   flex-flow: row wrap;
+  margin-bottom: 3rem;
 }

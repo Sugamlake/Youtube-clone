@@ -24,6 +24,7 @@ app.get('/api/search', async (req, res) => {
         const orderSearch = req.query.order;
         const relatedVideo = req.query.related;
         const channelId = req.query.channel_id;
+        const after = req.query.after;
         const response = await youtube.search.list({
             part: 'snippet',
             q: searchQuery,
@@ -31,7 +32,8 @@ app.get('/api/search', async (req, res) => {
             type: 'video',
             order: orderSearch,
             channelId: channelId,
-            relatedToVideoId: relatedVideo
+            relatedToVideoId: relatedVideo, 
+            publishedAfter : after,
         });
 
         const videosId = response.data.items.map(item => item.id.videoId); // get videoIds
