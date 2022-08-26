@@ -1,54 +1,60 @@
-import React,{useState, useEffect} from "react";
+import React from "react";
 import "./RecommendedVideos.css";
 import { VideoCard } from "./VideoCard";
-import axios from "axios";
-
 
 export const RecommendedVideos = () => {
-  const [videos, setVideos] = useState([]);
-  const [videosUrl, setVideosUrl] = useState('');
-  const [channelsUrl, setChannelsUrl] = useState('');
-  useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=music&order=relevance').then(function (response) {
-          setVideosUrl(response.data.videos);
-          setChannelsUrl(response.data.channels);
-      }).catch(function (error) {
-         console.error(error);});
-  }, []);
-  useEffect(() => {
-    axios.get(`http://localhost:5000/api/videos?${videosUrl}`).then(function (response) {
-      let arr = [];
-      response.data.map(item => {
-        if(item.snippet.title.length > 30){
-          item.snippet.title = item.snippet.title.substring(0, 30) + "...";
-        }
-        arr.push(item);
-      })
-      setVideos(response.data);
-      console.log(response.data.items);
-      console.log(videos);
-    }).catch(function (error) {
-      console.error(error);
-    })
-  } , [videosUrl]);
   return (
     <div className="recommendedVideos">
       <h2>Recommended</h2>
       <div className="recommendedVideos__videos">
-        {videos.map((video, index) => {
-          return (
-            <VideoCard
-            key={index}
-            title={video?.snippet.title}
-            views={video?.statistics.viewCount}
-            timestamp={video?.snippet.publishedAt}
-            channelImage="https://avatars.githubusercontent.com/u/93014692?v=4"
-            channel={video?.snippet.channelTitle}
-            image={video?.snippet.thumbnails.medium.url}
-            link={video?.id}
-          />
-          )
-        })}
+        <VideoCard
+          title="How to create a Youtube Clone | 2020"
+          views="2.3M views"
+          timestamp="3 days ago"
+          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+          channel="ANaranjoDev"
+          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        />
+        <VideoCard
+          title="How to create a Youtube Clone | 2020"
+          views="2.3M views"
+          timestamp="3 days ago"
+          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+          channel="ANaranjoDev"
+          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        />
+        <VideoCard
+          title="How to create a Youtube Clone | 2020"
+          views="2.3M views"
+          timestamp="3 days ago"
+          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+          channel="ANaranjoDev"
+          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        />
+        <VideoCard
+          title="How to create a Youtube Clone | 2020"
+          views="2.3M views"
+          timestamp="3 days ago"
+          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+          channel="ANaranjoDev"
+          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        />
+        <VideoCard
+          title="How to create a Youtube Clone | 2020"
+          views="2.3M views"
+          timestamp="3 days ago"
+          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+          channel="ANaranjoDev"
+          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        />
+        <VideoCard
+          title="How to create a Youtube Clone | 2020"
+          views="2.3M views"
+          timestamp="3 days ago"
+          channelImage="https://avatars2.githubusercontent.com/u/32638444?s=460&u=7f980bc423bf06977334433b7cd3a2110a1171b3&v=4"
+          channel="ANaranjoDev"
+          image="https://img-a.udemycdn.com/course/480x270/1551858_d095_2.jpg"
+        />
       </div>
     </div>
   );

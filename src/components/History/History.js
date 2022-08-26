@@ -1,15 +1,18 @@
 import React,{useState, useEffect} from "react";
-import "./ShowMore.css";
-import { VideoCard } from "./components/VideoCard/VideoCard";
+import "./History.css"; //Acá se le cambia el nombre del archivo con el mismo del import de app.js
+import { VideoCard } from "../VideoCard/VideoCard";
 import axios from "axios";
 
 
-export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del import de app.js
+export const History = () => { //Acá se le cambia el nombre con el mismo del import de app.js
   const [videos, setVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
+  const [playlists, setPlaylists] = useState([]);
+
+
   useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=followers&order=relevance&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
+      axios.get('http://localhost:5000/api/search?search_query=starcraft%20remasterizado&order=relevance').then(function (response) {
           setVideosUrl(response.data.videos);
           setChannelsUrl(response.data.channels);
       }).catch(function (error) {
@@ -32,9 +35,9 @@ export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del i
     })
   } , [videosUrl]);
   return (
-    <div className="showMore">
-      <h2>Show More</h2>
-      <div className="showMore__videos">
+    <div className="history"> 
+      <h2>Library</h2>
+      <div className="history__videos"> {/*Acá se le cambia el nombre a la carpeta actual con minúsculas */}
         {videos.map((video, index) => {
           return (
             <VideoCard
@@ -49,6 +52,8 @@ export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del i
           />
           )
         })}
+        <hr />
+
       </div>
     </div>
   );

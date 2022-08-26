@@ -1,15 +1,15 @@
 import React,{useState, useEffect} from "react";
-import "./ShowMore.css";
-import { VideoCard } from "./components/VideoCard/VideoCard";
+import "./TrendingPage.css";
+import { VideoCard } from "../VideoCard/VideoCard";
 import axios from "axios";
 
 
-export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del import de app.js
+export const TrendingPage = () => {
   const [videos, setVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
   useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=followers&order=relevance&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
+      axios.get('http://localhost:5000/api/search?search_query=news&order=rating').then(function (response) {
           setVideosUrl(response.data.videos);
           setChannelsUrl(response.data.channels);
       }).catch(function (error) {
@@ -32,9 +32,9 @@ export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del i
     })
   } , [videosUrl]);
   return (
-    <div className="showMore">
-      <h2>Show More</h2>
-      <div className="showMore__videos">
+    <div className="trendingPage">
+      <h2>Trending</h2>
+      <div className="trendingPage__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard

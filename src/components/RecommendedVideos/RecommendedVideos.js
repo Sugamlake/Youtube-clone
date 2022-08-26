@@ -1,15 +1,18 @@
-import React,{useState, useEffect} from "react";
-import "./ShowMore.css";
-import { VideoCard } from "./components/VideoCard/VideoCard";
+import React,{useState, useEffect, useContext} from "react";
+import "./RecommendedVideos.css";
+import { VideoCard } from "../VideoCard/VideoCard";
 import axios from "axios";
+import { VideosContext } from "../../Context/VideosContext";
 
 
-export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del import de app.js
+export const RecommendedVideos = () => {
   const [videos, setVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
+
+  const { setIsOnVideoPage, menu } = useContext(VideosContext);
   useEffect(() => {
-      axios.get('http://localhost:5000/api/search?search_query=followers&order=relevance&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
+      axios.get('http://localhost:5000/api/search?search_query=music&order=relevance').then(function (response) {
           setVideosUrl(response.data.videos);
           setChannelsUrl(response.data.channels);
       }).catch(function (error) {
@@ -31,10 +34,11 @@ export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del i
       console.error(error);
     })
   } , [videosUrl]);
+  setIsOnVideoPage(false);
   return (
-    <div className="showMore">
-      <h2>Show More</h2>
-      <div className="showMore__videos">
+    <div className="recommendedVideos">
+      <h2>Recommended</h2>
+      <div className="recommendedVideos__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard

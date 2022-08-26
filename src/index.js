@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import { VideosProvider } from "./VideosContext";
+import { VideosProvider } from "./Context/VideosContext";
 
 ReactDOM.render(
   <React.StrictMode>

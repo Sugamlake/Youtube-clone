@@ -1,10 +1,10 @@
 import React,{useState, useEffect} from "react";
-import "./ShowMore.css";
-import { VideoCard } from "./components/VideoCard/VideoCard";
+import "./WatchLater.css";
+import { VideoCard } from "../VideoCard/VideoCard";
 import axios from "axios";
 
 
-export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del import de app.js
+export const WatchLater = () => { //Acá se le cambia el nombre con el mismo del import de app.js
   const [videos, setVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
   const [channelsUrl, setChannelsUrl] = useState('');
@@ -32,9 +32,9 @@ export const ShowMore = () => { //Acá se le cambia el nombre con el mismo del i
     })
   } , [videosUrl]);
   return (
-    <div className="showMore">
-      <h2>Show More</h2>
-      <div className="showMore__videos">
+    <div className="watchLater">
+      <h2>Watch Later</h2>
+      <div className="watchLater__videos">
         {videos.map((video, index) => {
           return (
             <VideoCard

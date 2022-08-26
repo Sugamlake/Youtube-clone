@@ -1,21 +1,20 @@
 import React, {useContext} from "react";
 import "./App.css";
-import { Header } from "./Header";
-import { Sidebar } from "./Sidebar";
-import { RecommendedVideos } from "./RecommendedVideos";
+import { Header } from "./components/Header/Header";
+import { Sidebar } from "./components/Sidebar/Sidebar";
+import { RecommendedVideos } from "./components/RecommendedVideos/RecommendedVideos";
 import { Switch, Route } from "react-router-dom";
-import { SearchPage } from "./SearchPage";
-import { VideoPage } from "./videoPage";
-import { TrendingPage } from "./trendingPage";
-import { Subscriptions } from "./subscriptions";
-import { Library } from "./Library";
-import { History} from "./History";
-import {YourVideos} from "./YourVideos";
-import {WatchLater} from "./WatchLater";
-import {LikedVideos} from "./LikedVideos";
+import { SearchPage } from "./components/SearchPage/SearchPage";
+import { VideoPage } from "./components/VideoPage/VideoPage";
+import { TrendingPage } from "./components/TrendingPage/TrendingPage";
+import { Subscriptions } from "./components/Subscriptions/Subscriptions";
+import { Library } from "./components/Library/Library";
+import { History} from "./components/History/History";
+import {YourVideos} from "./components/YourVideos/YourVideos";
+import {WatchLater} from "./components/WatchLater/WatchLater";
+import {LikedVideos} from "./components/LikedVideos/LikedVideos";
 import {ShowMore} from "./ShowMore";
-import {VideosContext} from "./VideosContext";
-
+import {VideosContext} from "./Context/VideosContext";
 
 
 function App() {

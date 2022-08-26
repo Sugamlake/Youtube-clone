@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Header.css";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,13 +7,15 @@ import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { VideosContext } from "../../Context/VideosContext";
 
 export const Header = () => {
   const [inputSearch, setInputSearch] = useState("");
+  const { menu, setMenu } = useContext(VideosContext);
   return (
     <div className="header">
       <div className="header__left">
-        <MenuIcon />
+        <MenuIcon onClick={()=>{setMenu(!menu)}}/>
         <Link
           to="/"
           onClick={() => {
@@ -21,8 +23,7 @@ export const Header = () => {
           }}
         >
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/YouTube_icon.png/800px-YouTube_icon.png"
-            alt="logo youtube"
+            src="https://i.postimg.cc/gJsPxmDP/Captura-de-Pantalla-2022-08-03-a-la-s-18-06-33.png"
             className="header__logo"
           />
         </Link>
@@ -33,6 +34,11 @@ export const Header = () => {
           placeholder="Search"
           value={inputSearch}
           onChange={(e) => setInputSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              window.location.href = `/search/${inputSearch}`;
+            }
+          }}
         />
         <Link to={`/search/${inputSearch}`} className="header__linkButton">
           <SearchIcon className="header__inputButton" />
@@ -43,8 +49,8 @@ export const Header = () => {
         <AppsIcon className="header__icon" />
         <NotificationsIcon className="header__icon" />
         <Avatar
-          alt="Restaurant"
-          src="../assets/la_marca.jpeg"
+          alt="SugamDev"
+          src="https://avatars.githubusercontent.com/u/93014692?v=4"
         />
       </div>
       {/* <div className="navbar__center__container">
