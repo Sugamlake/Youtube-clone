@@ -15,6 +15,7 @@ import {WatchLater} from "./components/WatchLater/WatchLater";
 import {LikedVideos} from "./components/LikedVideos/LikedVideos";
 import {ShowMore} from "./ShowMore";
 import {VideosContext} from "./Context/VideosContext";
+import { ShortsPage } from "./components/ShortsPage/ShortsPage";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/trending" exact component={TrendingPage} />
           <Route path="/" exact component={RecommendedVideos} />
           <Route path="/Subscriptions" exact component={Subscriptions} />
+          <Route path="/Shorts" exact component={ShortsPage} />
           <Route path="/Library" exact component={Library} />
           <Route path="/History" exact component={History} />
           <Route path="/Your Videos" exact component={YourVideos} />

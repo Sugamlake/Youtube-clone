@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import "./Library.css";
 import { VideoCard } from "../VideoCard/VideoCard";
 import axios from "axios";
+import { PlaylistCard } from "../Playlist/PlaylistCard";
 
 
 export const Library = () => { //Acá se le cambia el nombre con el mismo del import de app.js
@@ -56,8 +57,24 @@ export const Library = () => { //Acá se le cambia el nombre con el mismo del im
           />
           )
         })}
-        <hr />
-
+      </div>
+      <hr/>
+      <h2>Playlists</h2>
+      <div className="library__videos">
+      {playlists.map((video, index) => {
+        return (
+          <PlaylistCard
+          key={index}
+          title={video?.snippet.title}
+          // views={video?.statistics.viewCount}
+          timestamp={video?.snippet.publishedAt}
+          channelImage="https://avatars.githubusercontent.com/u/93014692?v=4"
+          channel={video?.snippet.channelTitle}
+          image={video?.snippet.thumbnails.medium.url}
+          link={video?.id}
+        />
+        )
+      })}
       </div>
     </div>
   );

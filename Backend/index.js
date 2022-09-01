@@ -184,7 +184,7 @@ app.get('/api/playlists', async (req, res) => {
     try {
         const channelId = req.query.channel_id;
         const response = await youtube.playlists.list({
-            part: 'snippet',
+            part: ['snippet', 'player'],
             channelId: channelId,
             maxResults: '2'
         });

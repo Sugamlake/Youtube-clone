@@ -4,12 +4,7 @@ import { VideoCard } from "../VideoCard/VideoCard";
 import axios from "axios";
 import { VideosContext} from '../../Context/VideosContext';
 
-const calculateWeek = () => {
-  let d1 = new Date()
-  let dateOffset = (24*60*60*1000)* 7;
-  d1.setTime(d1.getTime()- dateOffset);
-  return d1
-}
+
 export const Subscriptions = () => { //Acá se le cambia el nombre con el mismo del import de app.js
   const [todayVideos, setTodayVideos] = useState([]);
   const [videosUrl, setVideosUrl] = useState('');
@@ -18,20 +13,37 @@ export const Subscriptions = () => { //Acá se le cambia el nombre con el mismo 
   const [monthVideos, setMonthVideos] = useState([]);
   const [monthVideosUrl, setMonthVideosUrl] = useState([]);
   const {menu, setIsOnVideoPage} = useContext(VideosContext);
-  console.log(calculateWeek());
+  
+  const getWeek = () => {
+    let today = new Date();
+    let day = today.getDay();
+    let diff = today.getDate()-day + (day === 0 ? -6 : 1);
+    let weekStart = new Date(today.setDate(diff)).toISOString();
+    return weekStart
+  }
+  console.log(getWeek())
+
+  const getMonth = () => {
+    let today = new Date();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let dateString = `${year}-${month}-01T00:00:00.000Z`
+    return dateString
+  }
+
   useEffect(() => {
       axios.get('http://localhost:5000/api/search?order=date&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
           setVideosUrl(response.data.videos);
       }).catch(function (error) {
          console.error(error);
       });
-      axios.get(`http://localhost:5000/api/search?after=2022-08-22T00:00:00Z&channel_id=UCeY0bbntWzzVIaj2z3QigXg`).then(function (response) {
+      axios.get(`http://localhost:5000/api/search?after=${getWeek()}&channel_id=UCeY0bbntWzzVIaj2z3QigXg`).then(function (response) {
           setWeekVideosUrl(response.data.videos);
           console.log(response.data.videos);
       }).catch(function (error) {
          console.error(error);
       });
-      axios.get('http://localhost:5000/api/search?after=2022-08-01T00:00:00Z&channel_id=UCeY0bbntWzzVIaj2z3QigXg').then(function (response) {
+      axios.get(`http://localhost:5000/api/search?after=${getMonth()}&channel_id=UCeY0bbntWzzVIaj2z3QigXg`).then(function (response) {
           setMonthVideosUrl(response.data.videos);
       }).catch(function (error) {
          console.error(error);
