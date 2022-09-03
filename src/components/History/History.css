@@ -1,15 +1,15 @@
-.History {
+.history {
     width: 80%;
     background: #f9f9f9;
     padding: 40px 20px 0 20px;
     min-height: 100%;
   }
   
-  .History > h2 {
+  .history > h2 {
     margin: 0 0 20px 5px;
   }
   
-  .History__videos {
+  .history__videos {
     display: flex;
     flex-flow: row wrap;
   }

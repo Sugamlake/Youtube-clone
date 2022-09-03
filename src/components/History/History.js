@@ -36,11 +36,11 @@ export const History = () => { //Acá se le cambia el nombre con el mismo del im
   } , [videosUrl]);
   return (
     <div className="history"> 
-      <h2>Library</h2>
+      <h2>History</h2>
       <div className="history__videos"> {/*Acá se le cambia el nombre a la carpeta actual con minúsculas */}
         {videos.map((video, index) => {
           return (
-            <VideoCard
+            <VideoRow
             key={index}
             title={video?.snippet.title}
             views={video?.statistics.viewCount}

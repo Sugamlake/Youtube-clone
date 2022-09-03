@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { Avatar, SvgIcon } from "@material-ui/core";
 import axios from "axios";
 import { VideosContext } from "../../Context/VideosContext";
+import { SubscriptionRow } from "../SubscriptionsRow/SubscriptionRow";
 
 export const Sidebar = () => {
   const [channels, setChannels] = useState([]);
@@ -107,11 +108,15 @@ export const Sidebar = () => {
           />
         </Link>
         <hr />
-        <h3>Subscriptions</h3>
-        <hr />
+        <h3>SUBSCRIPTIONS</h3>
         {channels.map((channel) => {
-          console.log(channel?.snippet.thumbnails.medium.url);
-          return <Avatar src={channel?.snippet.thumbnails.medium.url} />;
+          console.log(channel);
+          return (
+            <SubscriptionRow 
+              channelImage={channel?.snippet.thumbnails.medium.url}
+              title={channel?.snippet.title}
+            />
+          );
         })}
       </div>
     ) : (
