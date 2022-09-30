@@ -21,7 +21,7 @@ export const VideoRow = ({
       <div
         className="videoRow"
         style={
-          type == "watchLater"
+          type == "watchLater" || type == "likedVideos"
             ? {
                 borderBottom: "1px solid black",
                 padding: "16px 0 ",

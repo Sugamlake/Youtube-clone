@@ -1,11 +1,11 @@
 const express = require("express");
+require("dotenv").config();
 const axios = require("axios");
 const { google } = require("googleapis");
-const SerpApi = require("google-search-results-nodejs");
 
 const app = express();
 const port = process.env.PORT || 5000;
-const apiKey = process.env.API_KEY || "AIzaSyB2i2avPSAYcjZ9KJUiR_EQ168Tf2Kf36o";
+const apiKey = process.env.API_KEY;
 const youtube = google.youtube({
   version: "v3",
   auth: apiKey,

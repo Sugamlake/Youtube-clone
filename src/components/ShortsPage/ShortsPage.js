@@ -11,59 +11,58 @@ export const ShortsPage = () => {
   const [channelsUrl, setChannelsUrl] = useState("");
 
   const { setIsOnVideoPage, menu } = useContext(VideosContext);
-  //   useEffect(() => {
-  //       axios.get('http://localhost:5000/api/search?search_query=music&order=relevance').then(function (response) {
-  //           setVideosUrl(response.data.videos);
-  //           setChannelsUrl(response.data.channels);
-  //       }).catch(function (error) {
-  //          console.error(error);});
-  //   }, []);
-  //   useEffect(() => {
-  //     axios.get(`http://localhost:5000/api/videos?${videosUrl}`).then(function (response) {
-  //       let arr = [];
-  //       response.data.map(item => {
-  //         if(item.snippet.title.length > 30){
-  //           item.snippet.title = item.snippet.title.substring(0, 30) + "...";
-  //         }
-  //         arr.push(item);
-  //       })
-  //       setVideos(response.data);
-  //       console.log(response.data.items);
-  //       console.log(videos);
-  //     }).catch(function (error) {
-  //       console.error(error);
-  //     })
-  //   } , [videosUrl]);
+  const shorts = {
+    title: "Shorts",
+    videos: [
+      {
+        id: "1",
+        description:
+          "These Celebrities HATE Tom Hanks! #shorts by Facts Verse. . Play on YouTube.",
+        channel: "Facts Verse",
+        url: "https://www.youtube.com/embed/JKNjU1ckHKI",
+      },
+      {
+        id: "2",
+        description:
+          "Tom Hanks: My surprising conversation with Sully by Graham Bensinger. . Play on YouTube.",
+        channel: "Graham Bensinger",
+        url: "https://www.youtube.com/embed/Ivsct4nCSWc",
+      },
+      {
+        id: "3",
+        description:
+          "Tom Hanks Reveals He Almost Died While Filming 'Cast Away' by Rare Media on YouTube",
+        channel: "Rare Media",
+        url: "https://www.youtube.com/embed/Yuy7Eyr3Ej4",
+      },
+      {
+        id: "4",
+        description:
+          "Avengers Cast Entry Style 🔥 #shorts #marvel #ironman #avengers #spiderman",
+        channel: "LEØ",
+        url: "https://www.youtube.com/embed/p7jPo7mGqV0",
+      },
+    ],
+  };
   setIsOnVideoPage(false);
   return (
     <div className="shortsPage">
       <div className="shortsPage__videos">
-        {/* {videos.map((video, index) => {
+        {shorts.videos.map((video) => {
           return (
-            <VideoCard
-            key={index}
-            title={video?.snippet.title}
-            views={video?.statistics.viewCount}
-            timestamp={video?.snippet.publishedAt}
-            channelImage="https://avatars.githubusercontent.com/u/93014692?v=4"
-            channel={video?.snippet.channelTitle}
-            image={video?.snippet.thumbnails.medium.url}
-            link={video?.id}
-          />
-          )
-        })} */}
+            <ShortsPlayer
+              id={video.id}
+              src={video.url}
+              channel={video.channel}
+              description={video.description}
+              like="1.5k"
+              dislike="1.5k"
+              share="1.5k"
+              comment="1.5k"
+            />
+          );
+        })}
       </div>
-      <ShortsPlayer
-          id="1"
-          src="https://www.youtube.com/embed/Yuy7Eyr3Ej4?controls=0"
-          // src="https://img23.ropose.com/video/mvid/bISCoHc/uBKy_315560961836500fdd44d11-be16-474e-aac5-620df3d3e96a_4275937a_a822.mp4"
-          channel="Rare Media"
-          description="Tom Hanks had some of Hollywood's most popular movies in the late '90s and early 2000s."
-          like="1.5k"
-          dislike="1.5k"
-          share="1.5k"
-          comment="1.5k"
-        />
     </div>
   );
 };

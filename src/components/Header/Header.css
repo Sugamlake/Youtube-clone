@@ -14,7 +14,7 @@
 }
 
 .header__logo {
-  height: 25px;
+  height: 37px;
   object-fit: contain;
   margin-left: 20px;
 }
@@ -25,6 +25,7 @@
   width: 40%;
   border: 1px solid lightgray;
   border-radius: 4px;
+  height: 37px;
 }
 
 .header__input > input {
@@ -32,6 +33,7 @@
   border: none;
   outline: none;
   padding: 0 8px;
+  height: 24px;
 }
 
 .header__linkButton {

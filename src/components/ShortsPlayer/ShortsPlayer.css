@@ -4,7 +4,7 @@
   height: 80vh;
   scroll-snap-align: start;
   border-radius: 20px;
-  /* box-shadow: 0px 2px 8px 4px red; */
+  margin-bottom: 20px;
 }
 
 .video__player {
