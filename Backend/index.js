@@ -203,10 +203,14 @@ app.get("/api/playlists", async (req, res) => {
 app.get("/api/shorts", async (req, res) => {
   try {
     const query = req.query.query;
-    axios.get(`https://serpapi.com/search.json?q=${query}&device=mobile&hl=en&gl=us`).then((response) => {
+    axios
+      .get(
+        `https://serpapi.com/search.json?q=${query}&device=mobile&hl=en&gl=us`
+      )
+      .then((response) => {
         res.json(response.data);
-    });
-    
+      });
+
     // res.json(search.json(params, callback));
   } catch (error) {
     console.log(error);

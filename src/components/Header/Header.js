@@ -15,7 +15,12 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="header__left">
-        <MenuIcon onClick={()=>{setMenu(!menu)}}/>
+        <MenuIcon
+          onClick={() => {
+            setMenu(!menu);
+          }}
+          className="header__menu"
+        />
         <Link
           to="/"
           onClick={() => {
