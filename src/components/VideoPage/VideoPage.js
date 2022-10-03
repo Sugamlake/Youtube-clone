@@ -42,7 +42,14 @@ export const VideoPage = ({ videoId }) => {
     axios
       .get(`http://localhost:5000/api/videos?${url}`)
       .then(function (response) {
-        setRelatedVideos(response.data);
+        let arr = [];
+        response.data.map((item) => {
+          if (item.snippet.title.length > 30) {
+            item.snippet.title = item.snippet.title.substring(0, 30) + "...";
+          }
+          arr.push(item);
+        });
+        setRelatedVideos(arr);
         console.log(response.data.items);
         console.log(relatedVideos);
       })
@@ -84,7 +91,11 @@ export const VideoPage = ({ videoId }) => {
       style={
         !menu
           ? { width: "100%" }
-          : { gridTemplateColumns: "auto auto", marginLeft: "0" }
+          : {
+              gridTemplateColumns: "auto auto",
+              marginLeft: "0",
+              paddingLeft: "0",
+            }
       }
     >
       <div className="videoPage__videos">
@@ -125,6 +136,7 @@ export const VideoPage = ({ videoId }) => {
               channel={video?.snippet.channelTitle}
               image={video?.snippet.thumbnails.medium.url}
               link={video?.id}
+              menu={menu}
             />
           );
         })}

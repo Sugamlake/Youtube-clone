@@ -4,31 +4,6 @@ import axios from "axios";
 import { Avatar } from "@material-ui/core";
 import { VideoRow } from "../VideoRow/VideoRow";
 
-const Chart = require("chart.js");
-const labels = ["January", "February", "March", "April", "May", "June"];
-
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
-
-const config = {
-  type: "line",
-  data: data,
-  options: {},
-};
-
-const ctx = document.getElementById("chart");
-
-// const myChart = new Chart(ctx, config);
-
 export const LikedVideos = () => {
   //Acá se le cambia el nombre con el mismo del import de app.js
   const [videos, setVideos] = useState([]);
@@ -70,7 +45,7 @@ export const LikedVideos = () => {
     <div className="likedVideos">
       <div className="likedVideos__description">
         <img src={videos[0]?.snippet.thumbnails.medium.url}></img>
-        <h2>Watch Later</h2>
+        <h2>Like Videos</h2>
         <p>2,021 videos • No views • Last updated on Sep 11, 2022</p>
         <hr />
         <div className="likedVideos__channel">

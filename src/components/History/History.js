@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { VideosContext } from "../../Context/VideosContext";
 import { Input } from "@material-ui/core";
 import { Label } from "@material-ui/icons";
+import { VideoRow } from "../VideoRow/VideoRow";
 
 const axios = require("axios");
 
@@ -14,7 +15,7 @@ export const History = () => {
   const [videosUrl, setVideosUrl] = useState("");
   const [channelsUrl, setChannelsUrl] = useState("");
 
-  const { menuOpen, setIsOnVideoPage } = useContext(VideosContext);
+  const { menu, setIsOnVideoPage } = useContext(VideosContext);
 
   useEffect(() => {
     axios
@@ -58,7 +59,7 @@ export const History = () => {
             console.log(video?.channel?.url);
             // console.log(video);
             return (
-              <VideoCard
+              <VideoRow
                 key={index}
                 title={video?.snippet.title}
                 views={video?.statistics.viewCount}

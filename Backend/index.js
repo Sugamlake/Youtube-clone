@@ -217,4 +217,20 @@ app.get("/api/shorts", async (req, res) => {
   }
 });
 
+app.get("/api/news", async (req, res) => {
+  try {
+    // https://newsapi.org/v2/everything?q=Apple&from=2022-10-03&sortBy=popularity&apiKey=65e723a8a0ff4298a99b7a0ad6bc65a9
+    const query = req.query.query;
+    const date = req.query.date;
+    const sort = req.query.sort;
+    const response = await axios.get(
+      `https://newsapi.org/v2/everything?q=${query}&from${date}&sort${sort}&apiKey=${process.env.NEWS_API_KEY}`
+    );
+    const news = response.data.articles[0];
+    res.json(news);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

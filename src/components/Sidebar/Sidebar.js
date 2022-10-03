@@ -34,10 +34,13 @@ export const Sidebar = () => {
   const ShortsIcon = (props) => {
     return (
       <SvgIcon {...props}>
-        <path d="M17.77 10.32c-.77-.32-1.2-.5-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zM10 14.65v-5.3L15 12l-5 2.65z" class="style-scope yt-icon"></path>
+        <path
+          d="M17.77 10.32c-.77-.32-1.2-.5-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zM10 14.65v-5.3L15 12l-5 2.65z"
+          class="style-scope yt-icon"
+        ></path>
       </SvgIcon>
     );
-  }
+  };
   if (!isOnVideoPage) {
     return menu ? (
       <div className="sidebar">
@@ -48,11 +51,7 @@ export const Sidebar = () => {
           <SidebarRow title="Trending" Icon={WhatshotIcon} expand={menu} />
         </Link>
         <Link to="/Shorts" style={{ textDecoration: "none", color: "black" }}>
-          <SidebarRow
-            title="Shorts"
-            Icon={ShortsIcon}
-            expand={menu}
-          />
+          <SidebarRow title="Shorts" Icon={ShortsIcon} expand={menu} />
         </Link>
         <Link
           to="/subscriptions"
@@ -70,16 +69,6 @@ export const Sidebar = () => {
         </Link>
         <Link to="/History" style={{ textDecoration: "none", color: "black" }}>
           <SidebarRow title="History" Icon={HistoryIcon} expand={menu} />
-        </Link>
-        <Link
-          to="/Your Videos"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <SidebarRow
-            title="Your videos"
-            Icon={OndemandVideoIcon}
-            expand={menu}
-          />
         </Link>
         <Link
           to="/Watch Later"
@@ -112,7 +101,7 @@ export const Sidebar = () => {
         {channels.map((channel) => {
           console.log(channel);
           return (
-            <SubscriptionRow 
+            <SubscriptionRow
               channelImage={channel?.snippet.thumbnails.medium.url}
               title={channel?.snippet.title}
             />
@@ -174,16 +163,6 @@ export const Sidebar = () => {
         </Link>
         <Link to="/History" style={{ textDecoration: "none", color: "black" }}>
           <SidebarRow title="History" Icon={HistoryIcon} expand={menu} />
-        </Link>
-        <Link
-          to="/Your Videos"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <SidebarRow
-            title="Your videos"
-            Icon={OndemandVideoIcon}
-            expand={menu}
-          />
         </Link>
         <Link
           to="/Watch Later"

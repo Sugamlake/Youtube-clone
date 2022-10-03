@@ -9,23 +9,30 @@ export const RelatedVideos = ({
   title,
   image,
   link,
+  menu,
 }) => {
   return (
-    <div className="relatedVideos">
-      <Link
-        to={`/video/${link}`}
-        style={{ textDecoration: "none", color: "black" }}
-      >
-        <div className="relatedVideos__thumbnail">
-          <img alt={channel} src={image} width="168px" />
+    <Link
+      to={`/video/${link}`}
+      style={{ textDecoration: "none", color: "black" }}
+    >
+      <div className="relatedVideos" style={menu ? { display: "block" } : {}}>
+        <div
+          className="relatedVideos__thumbnail"
+          style={menu ? { display: "block" } : {}}
+        >
+          <img alt={channel} src={image} width="150px" />
         </div>
-        <div className="relatedVideos__text">
+        <div
+          className="relatedVideos__text"
+          style={menu ? { display: "block" } : {}}
+        >
           <h3>{title}</h3>
           <p className="relatedVideos__headline">
             {channel} • {views} views • {timestamp}
           </p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };

@@ -3,6 +3,10 @@ import "./WatchLater.css";
 import axios from "axios";
 import { Avatar } from "@material-ui/core";
 import { VideoRow } from "../VideoRow/VideoRow";
+// const createImage = require("../../utilities/createChart");
+
+// const image = createImage();
+// console.log(image);
 
 export const WatchLater = () => {
   //Acá se le cambia el nombre con el mismo del import de app.js
@@ -56,6 +60,7 @@ export const WatchLater = () => {
           />
           <p>SugamDev</p>
         </div>
+        <div></div>
       </div>
       <div className="watchLater__videos">
         {videos.map((video, index) => {
