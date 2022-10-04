@@ -9,16 +9,19 @@ export const RecommendedVideos = () => {
   const [videosUrl, setVideosUrl] = useState("");
   const [channelsUrl, setChannelsUrl] = useState("");
   const [buttons, setButtons] = useState([
-    "Todos",
-    "Mixes",
-    "Música",
-    "Juegos",
-    "Deportes",
-    "Noticias",
-    "Películas",
-    "Animación",
-    "En vivo",
-    "Más",
+    "All",
+    "News",
+    "Live",
+    "Premieres",
+    "Music",
+    "Gaming",
+    "Sports",
+    "Movies",
+    "Learning",
+    "Shows",
+    "Fashion",
+    "360° Video",
+    "More",
   ]);
 
   const [activeButton, setActiveButton] = useState("Todos");
